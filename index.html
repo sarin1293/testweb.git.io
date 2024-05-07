@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Login</title>
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	<link rel="stylesheet" href="login.css" media="screen">
+	<link rel="stylesheet" href="bootstrap-5.0.2-dist (1)/bootstrap-5.0.2-dist/css/bootstrap.css">
+
+
+	<style>
+		body {
+			background-image: url('bgAEU.jpg');
+			background-size: cover;
+			background-position: center top;
+			background-repeat: no-repeat;
+
+		}
+
+		.wrap {
+			background-color: #fff;
+			padding: 30px;
+			padding-top: 0px;
+			border-radius: 15px;
+			width: 300px;
+			height: 300px;
+			margin-top: -16%;
+
+			margin-left: 3%;
+			box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+		}
+
+		.wrap-sos {
+			margin-top: 10px;
+			background-color: #fff;
+			padding: 5px;
+			padding-top: 5px;
+			border-radius: 15px;
+			width: 360px;
+			height: 220px;
+			margin-top: 5px;
+			margin-right: 90px;
+			box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+		}
+
+		.wrap .logo {
+			width: 60%;
+			padding-bottom: 40px;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div class="container">
+		<div class="row">
+			<div class='login' style="padding-top: 200px;">
+				<form name="sendin" action="$(link-login-only)" method="post">
+					<input type="hidden" name="username" />
+					<input type="hidden" name="password" />
+					<input type="hidden" name="dst" value="$(link-orig)" />
+					<input type="hidden" name="popup" value="true" />
+				</form>
+
+				<script type="text/javascript" src="/md5.js"></script>
+				<script type="text/javascript">
+					//<!--
+					function doLogin() {
+						document.sendin.username.value = document.login.username.value;
+						document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+						document.sendin.submit();
+						return false;
+					}
+					//-->
+				</script>
+
+
+
+				<div class="col-sm-12 col-md-12 col-lg-12 wrap">
+					<form class="vertical-form" name="login" action="$(link-login-only)" method="post" $(if chap-id)
+						onSubmit="return doLogin()" $(endif)>
+						<input type="hidden" name="dst" value="$(link-orig)" />
+						<input type="hidden" name="popup" value="true" />
+						<div style="margin:0;padding:0;display:inline"></div>
+						<legend>
+							<img class="logo" src="AEU-Logo.png" />
+						</legend>
+
+						<!-- <label for="">UserName: </label> -->
+						<input name="username" type="text" placeholder="username" size="30"
+							style="margin-bottom:10px; border-radius:5px;" />
+						<input autocomplete="off" name="password" type="password" label="false" placeholder="password"
+							size="20" style="margin-bottom:10px; border-radius:5px;" />
+						<input name="submit" type="submit" value="Login" />
+						<!-- <div class='footer' style="font-size: 11pt; padding-top: 10px;">
+													<p style="color: red;">Manege by Mr.Sokkhim <a href="https://www.today.com.kh/">TODAY INTERNET</a>
+													</p>
+													<p><a href="https://www.aeu.edu.kh/">ASIA EURO UNIVERSITY</a></p>
+													<br>
+													<p>
+													</p>
+												</div> -->
+					</form>
+				</div>
+				<div class=" col-sm-12  wrap-sos" style="text-align: center;">
+					<img src="wifi-1.png" width="100%" alt="">
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+	<script src="bootstrap-5.0.2-dist (1)/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+	<script type="text/javascript">
+		// <!-
+		document.login.username.focus();
+		//-->
+	</script>
+	<!-- <script type="text/javascript">
+		document.oncontextmenu = function () { return false; }
+	</script> -->
+</body>
+
+</html>
